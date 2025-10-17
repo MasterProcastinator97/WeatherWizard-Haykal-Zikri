@@ -19,7 +19,7 @@ wttr.in API: A good middle ground. You'd handle the HTTP requests and JSON parsi
 OpenWeatherMap API: Most complex, but also the best for the 'Extension Option'. It requires you to manage an API key securely and process a more detailed, real-world data structure. This would strongly demonstrate advanced skills.
 
 Me:
-"Thanks, that confirms my plan. I'll go with the OpenWeatherMap API. What is the most secure and persistent way to handle an API key in a Google Colab notebook? I was thinking of using getpass, but I don't want to re-enter it every time I open the notebook."
+"that confirms my plan. I'll go with the OpenWeatherMap API. What is the most secure and persistent way to handle an API key in a Google Colab notebook? I was thinking of using getpass, but I don't want to re-enter it every time I open the notebook."
 
 AI:
 You're right to think beyond getpass for persistence. The best practice in the Colab environment is to use the built-in Secrets Manager. It securely stores your key and makes it accessible to your notebook across sessions without exposing it in your code. Here's how you would modify your setup to use it.
