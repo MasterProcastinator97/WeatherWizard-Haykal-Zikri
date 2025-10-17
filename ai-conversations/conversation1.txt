@@ -5,6 +5,7 @@ Date: October 15, 2025
 Summary: This conversation documents the strategic decision to use the OpenWeatherMap API to meet the assignment's 'Extension Option'. It also shows intentional prompting to find the best practice for API key management in Google Colab, leading to the use of Colab Secrets.
 
 AI: Gemini
+_________________________________________________________________________________________________________________
 
 Me:
 "For my 'Weather Advisor' project, I need to get weather data. I have three options: a basic fetch-my-weather package, calling the wttr.in API directly, or using a full commercial API like OpenWeatherMap that requires key management. Could you help me compare these options based on implementation difficulty and how well each would demonstrate the advanced requirements of my assignment?"
