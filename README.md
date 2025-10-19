@@ -19,5 +19,11 @@ run_weather_dashboard()
 
 just run the function above and your all set
 
+---
+
+## Very important note
+
+Please set OPENWEATHER_API_KEY in Colab (Tools → Secrets) or locally as an environment variable before running.
+
 # thankyou !! 
 
