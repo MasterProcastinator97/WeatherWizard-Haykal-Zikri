@@ -1,0 +1,98 @@
+# Conversation Title: Fixing the title for the line chart
+# Date: October 17, 2025
+# Summary: This conversation documents changes in the title of the line chart
+# AI: Gemini
+---
+
+Me:
+I want to improve the user experience of my weather visualisations.
+A generic title isn't very helpful.
+Can you help me modify the create_temperature_visualisation function so I can pass in the location name
+and have it automatically appear in the plot's title? For example,
+if the location is 'Jakarta', the title should become 'Jakarta 5-Day Temperature Forecast'.
+
+---
+
+AI:
+I can modify the create_temperature_visualisation function to accept the location as an argument and include it in the title of the plot. I will also update the calls to this function in cells KN83sXWsiXM- and hwEwAFgKis4e to pass the location name.
+
+### BEFORE:
+
+def create_temperature_visualisation(weather_df, output_type='display'):
+    """
+    Creates a line chart of max and min temperatures from a weather DataFrame.
+    """
+    if weather_df is None or weather_df.empty:
+        print("Cannot create visualization: Weather data is not available.")
+        return
+
+    plt.style.use('seaborn-v0_8')
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    # Plotting Max and Min temperatures
+    ax.plot(weather_df['Date'], weather_df['Max Temp (°C)'], marker='o', linestyle='-', label='Max Temp (°C)')
+    ax.plot(weather_df['Date'], weather_df['Min Temp (°C)'], marker='o', linestyle='-', label='Min Temp (°C)')
+
+    # Adding labels and title for clarity
+    ax.set_title(f"5-Day Temperature Forecast", fontsize=16)
+    ax.set_ylabel("Temperature (°C)", fontsize=12)
+    ax.set_xlabel("Date", fontsize=12)
+    ax.legend()
+    plt.xticks(rotation=45) # Rotate date labels for better readability
+    plt.tight_layout() # Adjust layout to make room for labels
+
+    if output_type == 'figure':
+        return fig
+    else:
+        plt.show()
+
+I have updated the temperature visualization to include the location in the title. The next step is to complete the create_precipitation_visualisation function to visualize the precipitation data.
+
+Complete precipitation visualization: Fill in the code for the create_precipitation_visualisation function to create a suitable plot for precipitation data (e.g., a bar chart showing rain chance).
+Test visualizations: Call both the create_temperature_visualisation and create_precipitation_visualisation functions with the valid weather dataframes you have already generated (e.g., perth_weather, sydney_weather, indonesia_weather).
+Finish task: Review the generated visualizations and the code, and make any necessary adjustments.
+
+### AFTER:
+
+def create_temperature_visualisation(weather_df, location, output_type='display'):
+    """
+    Creates a line chart of max and min temperatures from a weather DataFrame.
+    """
+    if weather_df is None or weather_df.empty:
+        print("Cannot create visualization: Weather data is not available.")
+        return
+
+    plt.style.use('seaborn-v0_8')
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    # Plotting Max and Min temperatures
+    ax.plot(weather_df['Date'], weather_df['Max Temp (°C)'], marker='o', linestyle='-', label='Max Temp (°C)')
+    ax.plot(weather_df['Date'], weather_df['Min Temp (°C)'], marker='o', linestyle='-', label='Min Temp (°C)')
+
+    # Adding labels and title for clarity
+    ax.set_title(f"{location} 5-Day Temperature Forecast", fontsize=16) # Added location to the title
+    ax.set_ylabel("Temperature (°C)", fontsize=12)
+    ax.set_xlabel("Date", fontsize=12)
+    ax.legend()
+    plt.xticks(rotation=45) # Rotate date labels for better readability
+    plt.tight_layout() # Adjust layout to make room for labels
+
+    if output_type == 'figure':
+        return fig
+    else:
+        plt.show()
+# === AI Conversation ===
+# Conversation 5 — Fixing the Line‑Chart Title & Labels
+#
+# User:
+# “My temperature chart renders but the title is generic. What labels improve readability?”
+#
+# AI:
+# “Title: ‘Forecast Temperatures’; x‑label ‘Date’; y‑label ‘°C’; legend entries ‘Max Temp (°C)’ and ‘Min Temp (°C)’; keep a light grid and avoid hard‑coded colors.”
+#
+# User:
+# “If the forecast lacks Max/Min but has a single Temperature (°C), what do I do?”
+#
+# AI:
+# “Duplicate that column into both Max/Min as a graceful fallback; otherwise print a polite message and skip plotting.”
+# === End Conversation ===
